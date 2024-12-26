@@ -110,23 +110,6 @@ This project is a Library Management System developed using Laravel 10, PHP 8.2,
 ### Authentication
 - Laravel Sanctum is used for API authentication. Ensure Sanctum is properly configured in the `.env` file.
 
-## Usage
 
-### User Endpoints
-- **Register**: `/api/register`
-- **Login**: `/api/login`
-- **View Books**: `/api/books`
-- **Borrow Book**: `/api/books/{id}/borrow`
-- **Return Book**: `/api/books/{id}/return`
-- **View Borrowed Books**: `/api/user/borrowed-books`
-- **Pay Fine**: `/api/user/pay-fine`
-
-### Admin Endpoints
-- **Add Book**: `/api/admin/books`
-- **Update Book**: `/api/admin/books/{id}`
-- **Delete Book**: `/api/admin/books/{id}`
-- **View Users**: `/api/admin/users`
-- **Delete User**: `/api/admin/users/{id}`
-- **View Borrowers**: `/api/admin/borrowers`
 
 
