@@ -1,66 +1,115 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Library Management System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+This project is a Library Management System developed using Laravel 10, PHP 8.2, and MySQL 8.35. The application provides features for users to borrow and return books, and for administrators to manage books and users effectively. Laravel Sanctum is used for authentication.
 
-## About Laravel
+## Table of Contents
+1. [Features](#features)
+2. [Technologies Used](#technologies-used)
+3. [Installation](#installation)
+4. [Configuration](#configuration)
+5. [Usage](#usage)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Features
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### User Features
+1. **User Registration and Login**
+   - **Register**: Users can sign up with details such as name, email, password, and an optional mobile number.
+   - **Login**: Users can log in using their email and password.
 
-## Learning Laravel
+2. **View Books**
+   - Browse a list of books with details such as title, author, description, publish date, and availability status.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+3. **Borrow Books**
+   - Request to borrow an available book.
+   - System sets a configurable due date (e.g., 14 days).
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+4. **Return Books**
+   - Return borrowed books.
+   - Calculate fine for late returns.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+5. **View Borrowed Books**
+   - View currently borrowed books and their respective due dates.
 
-## Laravel Sponsors
+6. **Pay Fines**
+   - Pay fines online for late book returns.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### Admin Features
+1. **Manage Books**
+   - Add new books with details (title, author, description, publish date, and availability status).
+   - Update book details.
+   - Soft delete books.
 
-### Premium Partners
+2. **Manage Users**
+   - View a list of all registered users.
+   - Delete user accounts (only if they have no borrowed books or outstanding fines).
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+3. **View Books with Status**
+   - View all books with their current status:
+     - Available: Not currently borrowed.
+     - Borrowed: Currently issued to a user (with borrower details and due date).
 
-## Contributing
+4. **Track Borrowers**
+   - View all users who have borrowed books, along with details of the borrowed books.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+5. **Configure Fine Settings**
+   - Configure the fine amount per day for late returns via the `.env` file.
 
-## Code of Conduct
+## Technologies Used
+- **Backend**: Laravel 10
+- **Language**: PHP 8.2
+- **Database**: MySQL 8.35
+- **Authentication**: Laravel Sanctum
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Installation
 
-## Security Vulnerabilities
+### Prerequisites
+- PHP >= 8.2
+- Composer
+- MySQL >= 8.35
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
+### Steps
+1. Clone the repository:
+   ```bash
+   git clone <https://github.com/Karvendhannagaraj/library_management>
+   cd library_management
+   ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+2. Install dependencies:
+   ```bash
+   composer install
+   ```
+
+3. Create a `.env` file:
+   ```bash
+   cp .env.example .env
+   ```
+
+4. Configure the database and other settings in the `.env` file.
+
+5. Run migrations and seed the database:
+   ```bash
+   php artisan migrate --seed
+   ```
+
+6. Start the server:
+   ```bash
+   php artisan serve
+   ```
+
+## Configuration
+
+### Fine Settings
+- Configure the fine amount per day in the `.env` file:
+  ```env
+  FINE_AMOUNT_PER_DAY=10
+  BORROW_DUE_DAYS=14
+  ```
+
+### Authentication
+- Laravel Sanctum is used for API authentication. Ensure Sanctum is properly configured in the `.env` file.
+
+
+
+
